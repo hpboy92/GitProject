@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhúng JavaScript</title>
+</head>
+<body>
+    <h1>Bài tập nhúng JavaScript</h1>
+
+    <button type="button" onclick="alert('Xin chào')">Ấn nút để chào</button>
+
+    <p>Tôi đang có Iphone14, bạn có muốn xem ảnh?</p>
+
+    <img src="https://www.apple.com/v/iphone-14-pro/a/images/meta/iphone-14-pro_overview__e2a7u9jy63ma_og.png?202210122359" id="ip" width="600" style="display: none;">
+    <br>
+
+    <script>
+        function hienAnh () {
+            document.getElementById('ip').style.display ='block';
+        }
+    </script>
+    <button type="button" onclick="hienAnh ()">Xem ảnh</button>
+
+    <script>
+        function showMessage() {
+            alert('Xin chào!');
+        }
+    </script>
+
+    <p>
+        <button type="button" onclick="showMessage()">Click Me!</button>
+    </p>
+
+    <h2>Bạn có thể ẩn hiện Người nhện khi ấn nút</h2>
+
+    <img src="https://androidguias.com/wp-content/uploads/2022/02/spiderman-AB.jpg" id="nguoiNhen" width="600" style="display: none;">
+
+    <p>
+        <button type="button" onclick="hienAnh()">Hiện Người Nhện</button>
+    </p>
+
+    
+    
+
+
+    
+</body>
+</html>
