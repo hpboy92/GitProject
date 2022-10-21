@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chan Le</title>
+</head>
+<body>
+    <h2>Chương trình kiểm tra số chẵn lẻ</h2>
+    Nhập số: <br>
+    <p>
+        <input type="number" id="Num">
+        <button type="button" onclick="kiemTra()">Kiểm tra</button>
+    </p>
+    
+    <script>
+        function kiemTra() {
+            let myNumber = document.getElementById('Num').value;
+            if (myNumber % 2 == 0) {
+                alert(myNumber + ' là số chẵn')
+            } else {
+                alert(myNumber + ' là số lẻ')
+            }
+        }
+    </script>
+
+</body>
+</html>
