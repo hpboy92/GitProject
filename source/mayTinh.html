@@ -14,14 +14,50 @@
             <input type="number" id="no1">
             <input type="number" id="no2">
         </p>
-        <button type="button" onclick="">Addition(+)</button>
-        <button type="button" onclick="">Subtraction(-)</button>
-        <button type="button" onclick="">Multiplication(x)</button>
-        <button type="button" onclick="">Division(/)</button>
+
+        <button type="button" onclick="addition()">Addition(+)</button>
+        <button type="button" onclick="subtraction()">Subtraction(-)</button>
+        <button type="button" onclick="multiplication()">Multiplication(x)</button>
+        <button type="button" onclick="division()">Division(/)</button>
+
+        <p id="showResult"></p>
 
         <script>
-            let no1 = document.getElementById('no1').value;
-            let no2 = document.getElementById('')
+            // let n1 = parseFloat(document.getElementById("no1").value);
+            // let n2 = parseFloat(document.getElementById("no2").value);
+            // let add = n1 + n2;
+            // let subtract = n1 - n2;
+            // let multi = n1 * n2;
+            // let divide = n1 / n2;
+
+            // Addition:
+            function addition() {
+                let n1 = parseFloat(document.getElementById("no1").value);
+                let n2 = parseFloat(document.getElementById("no2").value);
+                let add = n1 + n2;
+                document.getElementById('showResult').innerHTML = 'Kết quả phép cộng là: ' + add;
+            }
+
+            function subtraction() {
+                let n1 = parseFloat(document.getElementById("no1").value);
+                let n2 = parseFloat(document.getElementById("no2").value);
+                let subtract = n1 - n2;
+                document.getElementById('showResult').innerHTML = 'Kết quả phép trừ là: ' + subtract;
+            }
+
+            function multiplication() {
+                let n1 = parseFloat(document.getElementById("no1").value);
+                let n2 = parseFloat(document.getElementById("no2").value);
+                let multi = n1 * n2;
+                document.getElementById('showResult').innerHTML = 'Kết quả phép nhân là: ' + multi;
+            }
+
+            function division() {
+                let n1 = parseFloat(document.getElementById("no1").value);
+                let n2 = parseFloat(document.getElementById("no2").value);
+                let divide = n1 / n2;
+                document.getElementById('showResult').innerHTML = 'Kết quả phép chia là: ' + divide;
+            }
         </script>
 
     </form>
