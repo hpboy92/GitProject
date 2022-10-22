@@ -1,7 +1,7 @@
-function hienAnh() {
+function showSM() {
     document.getElementById('nguoiNhen').style.display = 'block';
 }
 
-function anAnh() {
+function hideSM() {
     document.getElementById('nguoiNhen').style.display = "none"
 }
