@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diem Dai Hoc</title>
+</head>
+<body>
+    <h2>Tính điểm ĐH khối D</h2>
+    <table border="0" cellspacing = '0' cellpadding = '5'>
+
+        <tr>
+            <td>Môn Toán</td>
+            <td>
+                <input type="number" min="0" max="10" id="diemToan">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Môn Văn</td>
+            <td>
+                <input type="number" min="0" max="10" id="diemVan">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Môn Anh</td>
+            <td>
+                <input type="number" min="0" max="10" id="diemAnh">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Khu vực</td>
+            <td>
+                <select id="khuVuc">
+                    <option value="0.75">KV1</option>
+                    <option value="0.25">KV2</option>
+                    <option value="0.5">KV2-NT</option>
+                    <option value="0">KV3</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <p>
+        <button type="button" onclick="tinhDiem()">Tính điểm</button>
+    </p>
+
+    <p id="ketQua" style="color: red; font-size: larger;">
+
+    </p>
+    
+    <script>
+        function tinhDiem() {
+            let diemToan = document.getElementById('diemToan').value;
+            let diemVan = document.getElementById('diemVan').value;
+            let diemAnh = document.getElementById('diemAnh').value;
+            let diemKhuVuc = document.getElementById('khuVuc').value;
+            let tinhDiem = parseFloat(diemToan)+parseFloat(diemVan)+parseFloat(diemAnh)+parseFloat(diemKhuVuc);
+
+            document.getElementById('ketQua').innerHTML = `Tổng điểm ĐH khối D của bạn là ${tinhDiem}`;
+        }
+    </script>
+</body>
+</html>
