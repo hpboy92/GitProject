@@ -8,21 +8,22 @@
 </head>
 <body>
     <script>
-        let a = parseFloat(prompt('a?'));
+        let chuoiNhap = prompt('Nhập vào message:');
 
-        switch (a) {
-            case 0:
-                alert(0);
+        switch (chuoiNhap) {
+            case 'Employee':
+                alert('Hello');
                 break;
-            case 1:
-                alert(1);
+            case 'Director':
+                alert('Greetings');
                 break;
-            case 2:
-            case 3:
-                alert('2,3');
+            case '':
+                alert("No login");
+                break;
+            default:
+                alert('');
                 break;
         }
-       
     </script>
 </body>
 </html>
