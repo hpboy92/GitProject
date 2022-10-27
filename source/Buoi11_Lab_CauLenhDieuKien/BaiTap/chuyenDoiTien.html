@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen Doi Tien</title>
+</head>
+<body>
+   
+        <table border="0" cellspacing = "0" cellpadding = "5">
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="text" id="amount" style="width: 3cm;">
+            </td>
+
+            <td>
+                <select id="fromCurrency" style="width: 3cm;">
+                    <option value="VND">VN Dong</option>
+                    <option value="GBP">GB Pound</option>
+                    <option value="USD">US Dollar</option>
+                </select>
+            </td>
+
+            <td>
+                <select id="toCurrency" style="width: 3cm;">
+                    <option value="VND">VN Dong</option>
+                    <option value="GBP">GB Pound</option>
+                    <option value="USD">US Dollar</option>
+                </select>
+            </td>
+
+            <td>
+                <button type="button" onclick="convert()">Convert</button>
+            </td>
+        </tr>
+        </table>
+
+        <p id="result" style="color: blue;"></p>
+     
+
+    <script>
+        function convert() {
+            // const VNDVND = 1;
+            // const GBPGBP = 1;
+            // const USDUSD = 1;
+            const VNDGBP = (1/29000);
+            const VNDUSD = (1/23000);
+            const USDVND = 23000;
+            const USDGBP = (23000/29000);
+            const GBPVND = 29000;
+            const GBPUSD = (29000/23000)
+
+            let amount = parseFloat(document.getElementById('amount').value);
+
+            let fromCurrency = document.getElementById('fromCurrency').value;
+
+            let toCurrency = document.getElementById('toCurrency').value;
+
+            let result ='';
+
+            if (fromCurrency === toCurrency) {
+                result = 1 * amount;
+            } else if (fromCurrency == 'VND' && toCurrency == 'GBP') {
+                result = VNDGBP * amount;
+            } else if (fromCurrency == 'VND' && toCurrency == 'USD') {
+                result = VNDUSD * amount;
+            } else if (fromCurrency == 'USD' && toCurrency == 'VND') {
+                result = USDVND * amount;
+            } else if (fromCurrency == 'USD' && toCurrency == 'GBP') {
+                result = USDGBP * amount;
+            } else if (fromCurrency == 'GBP' && toCurrency == 'VND') {
+                result = GBPVND * amount;
+            } else if (fromCurrency == 'GBP' && toCurrency == 'USD') {
+                result = GBPUSD * amount;
+            }
+
+            document.getElementById('result').innerHTML = `Result: ${result}`;
+        }
+
+    </script>
+</body>
+</html>
