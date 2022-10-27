@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Login</title>
+</head>
+<body>
+    <script>
+        let admin = prompt('Hãy nhập tên Admin đăng nhập:');
+
+        if (admin == "Admin") {
+            let password = prompt('Hãy điền mật khẩu đăng nhập:');
+            if (password == "TheMaster") {
+                alert('Welcome');
+            } else if (password = null) {
+                alert('Cancelled');
+            } else {
+                alert("I don't know");
+            }
+        } else if (admin == null) {
+            alert('Cancelled');
+        } else {
+            alert("I don't know");
+        }
+    </script>
+</body>
+</html>
