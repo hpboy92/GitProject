@@ -10,7 +10,8 @@
     <h2>Nhập năm Dương lịch để biết năm Âm lịch</h2>
     Năm dương lịch:
     <input type="text" id="namDuongLich">
-    <button type="button">Xem năm Âm lịch</button>
+    <button type="button" onclick="tinhNamAmLich()">Xem năm Âm lịch</button>
+    <p id="ketQua"></p>
     <script>
         let Can = '';
         let Chi = '';
@@ -20,55 +21,289 @@
             Can = namNhap % 10;
             Chi = namNhap % 12;
             switch(Can) {
-                case 0:
+                case 0: Can = "Canh";
                     switch(Chi) {
-                        case 0:
+                        case 0: Chi = "Thân"
                         break;
-                        case 1:
+                        case 1: Chi = "Dậu"
                         break;
-                        case 2:
+                        case 2: Chi = "Tuất"
                         break;
-                        case 3:
+                        case 3: Chi = "Hợi"
                         break;
-                        case 4:
+                        case 4: Chi = "Tý"
                         break;
-                        case 5:
+                        case 5: Chi = "Sửu"
                         break;
-                        case 6:
+                        case 6: Chi = "Dần"
                         break;
-                        case 7:
+                        case 7: Chi = "Mẹo"
                         break;
-                        case 8:
+                        case 8: Chi = "Thìn"
                         break;
-                        case 9:
+                        case 9: Chi = "Tỵ"
                         break;
-                        case 10:
+                        case 10: Chi = "Ngọ"
                         break;
-                        case 11:
-                        break;
-                        case 12:
+                        case 11: Chi = "Mùi"
                         break;
                     }
                 break;
-                case 1:
+                case 1: Can = "Tân"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 2:
+                case 2: Can = "Nhâm"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 3:
+                case 3: Can = "Quý"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 4:
+                case 4: Can = "Giáp"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 5:
+                case 5: Can = "Ất"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 6:
+                case 6: Can = "Bính"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 7:
+                case 7: Can = "Đinh"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 8:
+                case 8: Can = "Mậu"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
-                case 9:
+                case 9: Can = "Kỷ"
+                    switch(Chi) {
+                        case 0: Chi = "Thân"
+                        break;
+                        case 1: Chi = "Dậu"
+                        break;
+                        case 2: Chi = "Tuất"
+                        break;
+                        case 3: Chi = "Hợi"
+                        break;
+                        case 4: Chi = "Tý"
+                        break;
+                        case 5: Chi = "Sửu"
+                        break;
+                        case 6: Chi = "Dần"
+                        break;
+                        case 7: Chi = "Mẹo"
+                        break;
+                        case 8: Chi = "Thìn"
+                        break;
+                        case 9: Chi = "Tỵ"
+                        break;
+                        case 10: Chi = "Ngọ"
+                        break;
+                        case 11: Chi = "Mùi"
+                        break;
+                    }
                 break;
             }
+            namAmLich = Can + " " + Chi;
+            document.getElementById('ketQua').innerHTML = "Năm Âm Lịch là: " + namAmLich;
         }
         
     </script>
