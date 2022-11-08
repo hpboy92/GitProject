@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhập chiều dài cạnh tam giác:
+    <input type="number" id="canh"><br>
+    <button type="button" onclick="veTamGiac01()">Vẽ tam giác 1</button>
+    <button type="button" onclick="veTamGiac02()">Vẽ tam giác 2</button>
+    <button type="button" onclick="veTamGiac03()">Vẽ tam giác 3</button>
+    <button type="button" onclick="veTamGiac04()">Vẽ tam giác 4</button>
+    <div id="ketQua01"></div>
+    <br>
+    <div id="ketQua02"></div>
+    <br>
+    <div id="ketQua03"></div>
+    <br>
+    <div id="ketQua04"></div>
+    <script>
+        // tam giác 1
+        function veTamGiac01() {
+
+            let canh = parseInt(document.getElementById('canh').value);
+            let chuoi = "";
+            for (i = 0; i < canh; i ++) {
+                for (j = 0; j <= i; j++) {
+                    chuoi += "*";
+                }
+                chuoi += "<br>"
+            }
+            document.getElementById('ketQua01').innerHTML = "Tam giác 1" + "<br>"+ chuoi; 
+        }
+
+        // tam giác 2
+        function veTamGiac02() {
+            let canh = parseInt(document.getElementById('canh').value);
+            let chuoi = '';
+            for (i = 0; i < canh; i++) {
+                for (j = canh; j > i; j--) {
+                    chuoi += "*";
+                }
+                chuoi += "<br>";
+            }
+            document.getElementById('ketQua02').innerHTML = "Tam giác 2" + "<br>" + chuoi;
+        }
+
+                   
+
+    </script>
+</body>
+</html>
