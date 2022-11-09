@@ -12,17 +12,16 @@
     <script>
         chuoi ='';
         for (i = 1; i <= 100; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                chuoi += "FizzBuzz <br>";
-                continue;
-            } else if (i % 3 == 0 && i % 5 !== 0) {
-                chuoi += "Fizz <br>";
-                continue;
-            } else if (i % 3 !== 0 && i % 5 == 0) {
-                chuoi += "Buzz <br>";
-                continue;
+            if (i % 15 === 0) {
+                document.write('FizzBuzz <br>');
+            } else if (i % 3 === 0) {
+                document.write('Fizz <br>');
+            } else if (i % 5 === 0) {
+                document.write('Buzz <br>');
+            } else {
+                document.write(i + "<br>");
             }
-            chuoi += i + "<br>";
+            
         }
         document.getElementById('ketQua').innerHTML = chuoi;
         console.log(chuoi);
