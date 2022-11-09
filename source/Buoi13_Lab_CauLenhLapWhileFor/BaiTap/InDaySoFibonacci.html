@@ -10,34 +10,31 @@
     Nhập vào số nguyên dương n để in dãy Fibonacci:
     <input type="number" min="1" id="soNhap">
     <button type="button" onclick="inDayFibonacci ()">In dãy Fibonacci</button>
-    <div id="ketQua"></div>
+    <div id="ketQua" style="color: red;"></div>
     <script>
         function inDayFibonacci () {
             let f1 = 1;
             let f2 = 1;
             let f;
-            let chuoi = '';
+            let chuoi = '1,1';
             let soNhap = parseInt(document.getElementById('soNhap').value);
             if (isNaN(soNhap) || soNhap < 2) {
                 alert('Hãy nhập số lớn hơn hoặc bằng 2');
             } else if (soNhap == 2)  {
-                chuoi = f1 + ", " + f2; 
+                document.getElementById('ketQua').innerHTML = 'Dãy Fibonacci là: ' + chuoi; 
             } else {
-                for (i = 0; i < soNhap - 2;i++) {
+                for (i = 2; i < soNhap;i++) {
                     f = f1 + f2;
                     f1 = f2;
                     f2 = f;
-
-                    
+                    chuoi += `,${f}`;                    
                 }
-
+                document.getElementById('ketQua').innerHTML = 'Dãy Fibonacci là: ' + chuoi;
             }
                                    
             }
             
             
-
-        }
     </script>
 </body>
 </html>
