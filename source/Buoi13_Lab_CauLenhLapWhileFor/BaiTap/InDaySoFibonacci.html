@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhập vào số nguyên dương n để in dãy Fibonacci:
+    <input type="number" min="1" id="soNhap">
+    <button type="button" onclick="inDayFibonacci ()">In dãy Fibonacci</button>
+    <div id="ketQua"></div>
+    <script>
+        function inDayFibonacci () {
+            let f1 = 1;
+            let f2 = 1;
+            let f;
+            let chuoi = '';
+            let soNhap = parseInt(document.getElementById('soNhap').value);
+            if (isNaN(soNhap) || soNhap < 2) {
+                alert('Hãy nhập số lớn hơn hoặc bằng 2');
+            } else if (soNhap == 2)  {
+                chuoi = f1 + ", " + f2; 
+            } else {
+                for (i = 0; i < soNhap - 2;i++) {
+                    f = f1 + f2;
+                    f1 = f2;
+                    f2 = f;
+
+                    
+                }
+
+            }
+                                   
+            }
+            
+            
+
+        }
+    </script>
+</body>
+</html>
