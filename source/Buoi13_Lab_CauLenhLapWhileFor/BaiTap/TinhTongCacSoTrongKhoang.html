@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Tính tổng các số trong khoảng a và b (Bao gồm cả a và b)</h3>
+    Nhập vào số nguyên a: 
+    <input type="number" id="so_a"> <br>
+    Nhập vào số nguyên b:
+    <input type="number" id="so_b"> <br>
+    <button type="button" onclick="tinhTong()">Tính tổng các số trong khoảng a và b</button>
+    <div id="ketQua"></div>
+    <script>
+        function tinhTong() {
+            let tong = 0;
+            a = parseInt(document.getElementById('so_a').value);
+            b = parseInt(document.getElementById('so_b').value);
+            if (a == b) {
+                tong = a + b;
+            } else if (a > b) {
+                for (let i = b;i <=a;i++) {
+                tong += i;
+                }
+            } else {
+                for (let i = a;i <=b;i++) {
+                tong += i;
+                } 
+            }
+            document.getElementById('ketQua').innerHTML = tong;
+        }
+    </script>
+
+</body>
+</html>
