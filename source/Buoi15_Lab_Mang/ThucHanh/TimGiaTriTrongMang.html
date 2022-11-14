@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Khởi tạo mảng có:
+    <input type="number" min="1" id="soLuongPhanTu" /> phần tử ngẫu nhiên là số
+    nguyên dương.
+    <button type="button" onclick="khoiTaoMang()">Khởi tạo</button>
+    <br />
+    Nhập vào một phần tử bất kỳ:
+    <input type="number" id="chuoiNhap" />
+    <button type="button" onclick="kiemTraPhanTu()">Kiểm tra</button>
+    <div id="ketQua"></div>
+
+    <script>
+      let mang = [];
+      function khoiTaoMang() {
+        let soLuongPhanTu = parseInt(
+          document.getElementById("soLuongPhanTu").value
+        );
+        for (i = 0; i < soLuongPhanTu; i++) {
+          mang[i] = Math.floor(Math.random() * 100);
+        }
+        console.log(mang);
+      }
+
+      function kiemTraPhanTu() {
+        let chuoiNhap = document.getElementById("chuoiNhap").value;
+        let ketQua = "";
+        let Dem = 0;
+        index = 0;
+        for (i = 0; i < mang.length; i++) {
+          if (chuoiNhap == mang[i]) {
+            Dem++;
+            index = i;
+          }
+        }
+        console.log(Dem, index);
+
+        if (Dem > 0) {
+          alert(
+            `Phần tử ${chuoiNhap} có trong mảng và trị trí tại index = ${index}`
+          );
+        } else {
+          alert(`Phần tử ${chuoiNhap} không có trong mảng`);
+        }
+      }
+    </script>
+  </body>
+</html>
