@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Caro Game Simple</h3>
+    <hr />
+    <div id="banCo"></div>
+    <button type="button" onclick="xuLyThayDoi();inBanCo(); ">
+      Change value
+    </button>
+
+    <script>
+      // Khai báo mảng
+      const DONG = 5;
+      const COT = 5;
+      // mang = new Array(DONG).fill(new Array(COT));
+      let mang = [];
+
+      // Khởi tạo mảng
+      function khoiTaoBanCo() {
+        for (i = 0; i < DONG; i++) {
+          mang[i] = new Array(COT);
+          console.log(i);
+          for (j = 0; j < COT; j++) {
+            mang[i][j] = "O";
+            console.log(`[${i}][${j}] = ${mang[i][j]}`);
+          }
+        }
+      }
+
+      // Xử lý thay đổi mảng khi input giá trị từ hộp thoại prompt
+      function xuLyThayDoi() {
+        let chi_so_dong = parseInt(prompt("Nhập dòng số: "));
+        let chi_so_cot = parseInt(prompt("Nhập cột số: "));
+        mang[chi_so_dong][chi_so_cot] = "X";
+      }
+
+      // In ra bàn cờ
+      function inBanCo() {
+        let chuoi = "";
+        for (i = 0; i < mang.length; i++) {
+          chuoi += "<br>";
+          for (j = 0; j < mang[i].length; j++) {
+            chuoi += mang[i][j] + "&nbsp;&nbsp;";
+          }
+        }
+        // console.log(mang);
+        document.getElementById("banCo").innerHTML = chuoi;
+      }
+
+      khoiTaoBanCo();
+      inBanCo();
+    </script>
+  </body>
+</html>
