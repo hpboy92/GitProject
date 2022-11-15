@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Caro Game Simple</h2>
+    <div id="banCo"></div>
+    <button type="button" onclick="xyLyThayDoi(); inBanCo();">
+      Change Value
+    </button>
+
+    <script>
+      // Khai báo và khởi tạo mảng bàn cờ đầu tiên
+      const DONG = 5;
+      const COT = 5;
+      //   mang = new Array(DONG).fill(new Array(COT));
+
+      let mang = [];
+      function khoiTaoBanCo() {
+        for (let i = 0; i < DONG; i++) {
+          mang[i] = new Array(COT);
+          for (let j = 0; j < mang[i].length; j++) {
+            mang[i][j] = "O";
+          }
+        }
+      }
+
+      // Xử lý thanh đổi khi lấy dữ liệu từ input nhập vào
+      function xyLyThayDoi() {
+        chi_so_dong = parseInt(prompt("Nhập vị trí dòng: "));
+        chi_so_cot = parseInt(prompt("Nhập vị trí cột: "));
+        mang[chi_so_dong][chi_so_cot] = "X";
+        console.log(mang);
+      }
+
+      // Hàm in bàn cờ
+      function inBanCo() {
+        let chuoi = "";
+        for (let i = 0; i < mang.length; i++) {
+          chuoi += "<br>";
+          for (let j = 0; j < mang[i].length; j++) {
+            chuoi += mang[i][j] + "&nbsp;&nbsp;";
+          }
+        }
+        document.getElementById("banCo").innerHTML = chuoi;
+      }
+
+      khoiTaoBanCo();
+      inBanCo();
+    </script>
+  </body>
+</html>
