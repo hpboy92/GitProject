@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let chuoiNhap = prompt("Nhập vào một chuỗi số:");
+      let ketQua = "";
+
+      for (i = 0; i < chuoiNhap.length; i++) {
+        ketQua += chuoiNhap[i];
+        if (chuoiNhap[i] % 2 == 0 && chuoiNhap[i + 1] % 2 == 0) {
+          ketQua += "-";
+        }
+      }
+      console.log(chuoiNhap);
+      console.log(chuoiNhap.length);
+      console.log(ketQua);
+    </script>
+  </body>
+</html>
