@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="chuoiNhap"></div>
+    <div id="ketQua"></div>
+    <script>
+      let mang = prompt("Nhập một chuỗi ký tự: ");
+      let UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let LOWER = "abcdefghijklmnopqrstuvwxyz";
+      let result = [];
+
+      for (let i = 0; i < mang.length; i++) {
+        if (UPPER.indexOf(mang[i]) !== -1) {
+          // khác -1 có nghĩa rằng phần tử mang[i] có trong chuỗi UPPER => chuyển thành lower case
+          result.push(mang[i].toLowerCase());
+        } else if (LOWER.indexOf(mang[i]) !== -1) {
+          // khác -1 có nghĩa rằng phần tử mang[i] có trong chuỗi LOWER => chuyển thành lower case
+          result.push(mang[i].toUpperCase());
+        } else {
+          result.push(mang[i]);
+        }
+      }
+      document.getElementById("chuoiNhap").innerHTML = mang;
+      document.getElementById("ketQua").innerHTML = result.join("");
+      console.log(mang);
+      console.log(result);
+    </script>
+  </body>
+</html>
