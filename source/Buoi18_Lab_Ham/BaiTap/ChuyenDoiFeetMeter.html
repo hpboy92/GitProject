@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Ứng dụng chuyển đổi từ feet sang meters</h3>
+    Nhập giá trị feet:
+    <input type="number" min="0" id="foot" />
+    <button type="button" onclick="footToMeter()">
+      Chuyển đổi sang meters
+    </button>
+    <br />
+
+    Nhập giá trị meters:
+    <input type="number" min="0" id="meter" />
+    <button type="button" onclick="meterToFoot()">Chuyển đổi sang feet</button>
+
+    <p id="ketQua"></p>
+    <script>
+      //dinh nghia ham
+      function footToMeter() {
+        let result = "";
+        let foot = document.getElementById("foot");
+        if (foot.value !== "") {
+          result = 0.305 * parseInt(foot.value);
+          document.getElementById("ketQua").innerHTML = `Meter = ${result}`;
+          foot.value = "";
+          foot.focus();
+        }
+      }
+
+      function meterToFoot() {
+        let result = "";
+        let meter = document.getElementById("meter");
+        if (meter.value !== "") {
+          result = 3.279 * parseInt(meter.value);
+          document.getElementById("ketQua").innerHTML = `Feet = ${result}`;
+          meter.value = "";
+          meter.focus();
+        }
+      }
+    </script>
+  </body>
+</html>
