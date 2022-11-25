@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function tinhGiaiThua(number) {
+        let result = 1;
+        for (i = 1; i <= number; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      while (true) {
+        let soNhap = parseInt(prompt("Nhập vào số tự nhiên lớn hơn 0: "));
+        let result = 0;
+        if (isNaN(soNhap) || soNhap <= 0) {
+          alert("Nhập lại một số tự nhiên lớn hơn 0.");
+          continue;
+        } else {
+          result += tinhGiaiThua(soNhap);
+          alert(`Giai thừa của ${soNhap} là ${result}`);
+          break;
+        }
+      }
+
+      console.log(soNhap);
+    </script>
+  </body>
+</html>
