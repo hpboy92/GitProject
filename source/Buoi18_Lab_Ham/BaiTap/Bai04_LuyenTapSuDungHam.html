@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <body>
     <script>
       function tinhDienTichHinhTron(number) {
         const PI = 3.14;
@@ -15,10 +17,36 @@
         return 2 * PI * number;
       }
     </script>
-  </head>
-  <body>
     Nhập bán kính đường tròn:
     <input type="number" min="0" id="banKinh" />
-    <button>Nhập</button>
+    <button type="button" onclick="tinhChuVi(); tinhDienTich();">Nhập</button>
+    <p id="chuVi"></p>
+    <p id="dienTich"></p>
+    <script>
+      function tinhChuVi() {
+        let oNhapLieu = document.getElementById("banKinh");
+        let banKinh = parseInt(oNhapLieu.value);
+        let result = 0;
+        if (banKinh !== "" && banKinh > 0) {
+          result += tinhChuViHinhTron(banKinh);
+          document.getElementById(
+            "chuVi"
+          ).innerHTML = `Chu vi hình tròn là ${result}`;
+        }
+        console.log(banKinh);
+      }
+      function tinhDienTich() {
+        let oNhapLieu = document.getElementById("banKinh");
+        let banKinh = parseInt(oNhapLieu.value);
+        let result = 0;
+        if (banKinh !== "" && banKinh > 0) {
+          result += tinhDienTichHinhTron(banKinh);
+          document.getElementById(
+            "dienTich"
+          ).innerHTML = `Diện tích hình tròn là ${result}`;
+        }
+        console.log(banKinh);
+      }
+    </script>
   </body>
 </html>
