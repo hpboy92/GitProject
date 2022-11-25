@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function xuLyHaiSo(a, b) {
+        let result = 0;
+        if (a > b) {
+          alert("Số thứ nhất lớn hơn số thứ hai.");
+        } else {
+          result = a + b;
+          alert("Tổng hai số là: " + result);
+        }
+      }
+
+      let soHangMot = parseInt(prompt("Nhập vào số thứ nhất: "));
+      console.log(soHangMot);
+      let soHangHai = parseInt(prompt("Nhập vào số thứ hai: "));
+      xuLyHaiSo(soHangMot, soHangHai);
+    </script>
+  </body>
+</html>
