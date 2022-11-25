@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Nhập số tự nhiên lớn hơn 1:
+    <input type="number" min="2" id="soNhap" />
+    <button type="button" onclick="kiemTraSoNguyenTo()">
+      Kiểm tra Số Nguyên Tố
+    </button>
+    <p id="ketQua"></p>
+    <script>
+      function kiemTraSoNguyenTo() {
+        let oNhapLieu = document.getElementById("soNhap");
+        let soNhap = parseInt(oNhapLieu.value);
+        if (oNhapLieu.value !== "" && oNhapLieu.value > 1) {
+          for (let i = 2; i < soNhap; i++) {
+            if (soNhap % i === 0) {
+              return false;
+            }
+          }
+          return true;
+        } else {
+          alert("Hãy nhập lại.");
+        }
+        oNhapLieu.value = "";
+        oNhapLieu.focus();
+      }
+    </script>
+  </body>
+</html>
