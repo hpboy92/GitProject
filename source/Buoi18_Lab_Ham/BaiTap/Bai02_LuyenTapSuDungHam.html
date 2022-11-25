@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let danhSachNgoiSao = [
+        "Polaris",
+        "Aldebaran",
+        "Deneb",
+        "Vega",
+        "Altair",
+        "Dubhe",
+        "Regulus",
+      ];
+      let danhSachChomSao = [
+        "Ursa Minor",
+        "Tarurus",
+        "Cygnus",
+        "Lyra",
+        "Aquila",
+        "Ursa Major",
+        "Leo",
+      ];
+
+      function timChomSao(chuoi) {
+        let result = "";
+        for (let i = 0; i < danhSachNgoiSao.length; i++) {
+          if (chuoi === danhSachNgoiSao[i]) {
+            result = `${danhSachChomSao[i]}`;
+            alert(result);
+            return;
+          }
+        }
+        result = "Không có chòm sao ương ứng";
+        alert(result);
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      let chuoiNhap = prompt("Nhập tên ngôi sao để tìm chòm sao tương ứng:");
+      console.log(chuoiNhap);
+      timChomSao(chuoiNhap);
+    </script>
+  </body>
+</html>
