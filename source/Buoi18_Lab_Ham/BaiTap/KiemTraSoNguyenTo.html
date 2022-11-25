@@ -12,20 +12,27 @@
     <button type="button" onclick="kiemTraSoNguyenTo()">
       Kiểm tra Số Nguyên Tố
     </button>
-    <p id="ketQua"></p>
     <script>
+      function soNguyenTo(number) {
+        for (let i = 2; i < number; i++) {
+          if (number % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
       function kiemTraSoNguyenTo() {
         let oNhapLieu = document.getElementById("soNhap");
         let soNhap = parseInt(oNhapLieu.value);
         if (oNhapLieu.value !== "" && oNhapLieu.value > 1) {
-          for (let i = 2; i < soNhap; i++) {
-            if (soNhap % i === 0) {
-              return false;
-            }
+          if (soNguyenTo(soNhap)) {
+            alert(`Số ${soNhap} là số nguyên tố`);
+          } else {
+            alert(`Số ${soNhap} không phải là số nguyên tố`);
           }
-          return true;
         } else {
-          alert("Hãy nhập lại.");
+          alert("Vui lòng nhập lại một số tự nhiên lớn hơn 1.");
         }
         oNhapLieu.value = "";
         oNhapLieu.focus();
