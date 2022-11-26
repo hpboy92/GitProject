@@ -10,19 +10,18 @@
     Tạo một mảng số nguyên có:
     <input type="number" min="1" id="soLuongPhanTu" />
     phần tử.
-    <button type="button" onclick="taoMangSoNguyen()">Khởi tạo mảng</button>
+    <button type="button" onclick="taoMangSoNguyenVaDaoNguoc();">
+      Khởi tạo mảng
+    </button>
     <p id="mangKhoiTao"></p>
     <p id="mangDaoNguoc"></p>
-    <button type="button" onclick="daoNguocDaySo()">
-      Đảo ngược mảng đã tạo
-    </button>
 
     <script>
       function daoNguocMangSoNguyen(mang) {
         return mang.reverse();
       }
 
-      function taoMangSoNguyen() {
+      function taoMangSoNguyenVaDaoNguoc() {
         let daySo = [];
         let oNhapLieu = document.getElementById("soLuongPhanTu");
         let soLuongPhanTu = parseInt(oNhapLieu.value);
@@ -31,15 +30,14 @@
             daySo.push(Math.floor(Math.random() * 99));
             console.log(i, daySo[i]);
           }
-          document.getElementById("mangKhoiTao").innerHTML = daySo.join(",");
+          document.getElementById("mangKhoiTao").innerHTML =
+            "Mảng đã khởi tạo là: " + daySo.join(",");
+          let mangDaoNguoc = daySo.reverse();
+          document.getElementById("mangDaoNguoc").innerHTML =
+            "Mảng đảo ngược là: " + mangDaoNguoc.join(",");
         }
         oNhapLieu.value = "";
         oNhapLieu.focus();
-      }
-
-      function daoNguocDaySo() {
-        let mangDaTao = document.getElementById("mangKhoiTao");
-        console.log(mangDaTao);
       }
     </script>
   </body>
