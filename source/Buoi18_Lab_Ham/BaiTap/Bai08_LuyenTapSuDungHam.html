@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function kiemTraSoNguyenDuong(soNhap) {
+        let kiemTra = soNhap - Math.floor(soNhap);
+        if (soNhap > 0 && kiemTra == 0) {
+          return true;
+        }
+        return false;
+      }
+
+      let number = parseFloat(prompt("Nhập một số: "));
+      if (kiemTraSoNguyenDuong(number)) {
+        alert(`${number} là số nguyên dương.`);
+      } else {
+        alert(`${number} không phải là số nguyên dương.`);
+      }
+    </script>
+  </body>
+</html>
