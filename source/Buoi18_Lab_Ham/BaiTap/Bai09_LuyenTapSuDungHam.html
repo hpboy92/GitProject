@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Tạo một mảng số nguyên có:
+    <input type="number" min="1" id="soLuongPhanTu" />
+    phần tử.
+    <button type="button" onclick="taoMangSoNguyen()">Khởi tạo mảng</button>
+    <p id="mangKhoiTao"></p>
+    <p id="mangDaoNguoc"></p>
+    <button type="button" onclick="daoNguocDaySo()">
+      Đảo ngược mảng đã tạo
+    </button>
+
+    <script>
+      function daoNguocMangSoNguyen(mang) {
+        return mang.reverse();
+      }
+
+      function taoMangSoNguyen() {
+        let daySo = [];
+        let oNhapLieu = document.getElementById("soLuongPhanTu");
+        let soLuongPhanTu = parseInt(oNhapLieu.value);
+        if ((soLuongPhanTu !== "") & (soLuongPhanTu > 0)) {
+          for (let i = 0; i < soLuongPhanTu; i++) {
+            daySo.push(Math.floor(Math.random() * 99));
+            console.log(i, daySo[i]);
+          }
+          document.getElementById("mangKhoiTao").innerHTML = daySo.join(",");
+        }
+        oNhapLieu.value = "";
+        oNhapLieu.focus();
+      }
+
+      function daoNguocDaySo() {
+        let mangDaTao = document.getElementById("mangKhoiTao");
+        console.log(mangDaTao);
+      }
+    </script>
+  </body>
+</html>
