@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" style="width: 500px">
+      <fieldset>
+        <legend>Add New Product</legend>
+        <input type="text" id="newProduct" placeholder="New Product" />
+        <button type="button" onclick="addProduct()">Add</button>
+        <p>
+          <button type="button" onclick="displayProductList()">
+            Display All Product
+          </button>
+        </p>
+
+        <p id="allProduct"></p>
+      </fieldset>
+      <script>
+        let productList = [];
+
+        function addProduct() {
+          let inputBox = document.getElementById("newProduct");
+          let newProduct = inputBox.value;
+          if (newProduct !== "") {
+            productList.push(newProduct);
+            console.log(productList);
+            inputBox.value = "";
+            inputBox.focus();
+          }
+        }
+
+        function displayProductList() {
+          let listProductTable = document.createElement("table");
+          let tableHead = document.createElement("th");
+          listProductTable.border = 0;
+          listProductTable.cellSpacing = 5;
+          listProductTable.cellPadding = 5;
+          tableHead.innerHTML = "Product Name";
+          tableHead.style.textAlign = "left";
+          listProductTable.appendChild(tableHead);
+
+          for (let i = 0; i < productList.length; i++) {
+            let row = document.createElement("tr");
+
+            let col_01 = document.createElement("td");
+            let col_02 = document.createElement("td");
+            let col_03 = document.createElement("td");
+            let editButton = document.createElement("button");
+            editButton.innerHTML = "Edit";
+            editButton.onclick = editProduct();
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete";
+            deleteButton.onclick = deleteProduct();
+            col_01.innerHTML = productList[i];
+            col_01.width = 200;
+            col_02.appendChild(editButton);
+
+            col_03.appendChild(deleteButton);
+
+            row.appendChild(col_01);
+            row.appendChild(col_02);
+            row.appendChild(col_03);
+
+            listProductTable.appendChild(row);
+          }
+          console.log(listProductTable);
+          document.getElementById("allProduct").appendChild(listProductTable);
+        }
+
+        function editProduct() {}
+
+        function deleteProduct() {}
+      </script>
+    </form>
+  </body>
+</html>
