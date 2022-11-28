@@ -46,26 +46,25 @@
 
           for (let i = 0; i < productList.length; i++) {
             let row = document.createElement("tr");
-
             let col_01 = document.createElement("td");
+            col_01.id = `${productList[i]}`;
             let col_02 = document.createElement("td");
             let col_03 = document.createElement("td");
             let editButton = document.createElement("button");
             editButton.innerHTML = "Edit";
+            editButton.type = "button";
             editButton.onclick = editProduct();
             let deleteButton = document.createElement("button");
             deleteButton.innerHTML = "Delete";
+            deleteButton.type = "button";
             deleteButton.onclick = deleteProduct();
             col_01.innerHTML = productList[i];
             col_01.width = 200;
             col_02.appendChild(editButton);
-
             col_03.appendChild(deleteButton);
-
             row.appendChild(col_01);
             row.appendChild(col_02);
             row.appendChild(col_03);
-
             listProductTable.appendChild(row);
           }
           console.log(listProductTable);
@@ -74,7 +73,9 @@
 
         function editProduct() {}
 
-        function deleteProduct() {}
+        function deleteProduct() {
+          let tenSP = document.getElementById("");
+        }
       </script>
     </form>
   </body>
