@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class HinhTron {
+        constructor(banKinh, mauSac = "") {
+          this.banKinh = banKinh;
+          this.mauSac = mauSac;
+        }
+
+        layGiaTriBanKinh() {
+          return this.banKinh;
+        }
+
+        tinhDienTichHinhTron() {
+          return Math.PI * this.banKinh * this.banKinh;
+        }
+      }
+
+      let hinhTron_01 = new HinhTron(7, "red");
+      let a = hinhTron_01.banKinh;
+      let r = hinhTron_01.layGiaTriBanKinh();
+      let S = hinhTron_01.tinhDienTichHinhTron();
+      console.log(a);
+      console.log(`Bán kính: ${r}`);
+      console.log(`Diện tích: ${S}`);
+    </script>
+  </body>
+</html>
