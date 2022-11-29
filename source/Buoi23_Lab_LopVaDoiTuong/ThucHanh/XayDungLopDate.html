@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isValidDate(day, month, year) {
+        if (day < 1 || day > 31) {
+          return false;
+        }
+        if (month < 1 || month > 12) {
+          return false;
+        }
+        if (year < 1900 || year > 9999) {
+          return false;
+        }
+        if (isleapYear(year)) {
+          if (month == 2 && day > 29) {
+            return false;
+          }
+        } else {
+          if (month == 2 && day > 28) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function isleapYear(year) {
+        if (year % 4 == 0 && year % 100 !== 0) {
+          return true;
+        }
+        if (year % 100 == 0 && year % 400 == 0) {
+          return true;
+        }
+        return false;
+      }
+      class MyDate {
+        constructor(day, month, year) {
+          // kiểm tra ngày, tháng, năm hợp lệ
+
+          if (isValidDate(day, month, year)) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+          } else {
+            alert("Nhập lại.");
+          }
+        }
+
+        getDay() {
+          return this.day;
+        }
+        getMonth() {
+          return this.month;
+        }
+        getYear() {
+          return this.year;
+        }
+
+        setDay(day) {
+          this.day = day;
+        }
+        setMonth(month) {
+          this.month = month;
+        }
+        setYear(year) {
+          this.year = year;
+        }
+
+        setDate(day, month, year) {
+          this.day = day;
+          this.month = month;
+          this.year = year;
+        }
+
+        toString() {
+          return `${this.day}/${this.month}/${this.year}`;
+        }
+      }
+
+      let date = new MyDate(28, 2, 2001);
+      let day = date.getDay();
+      let month = date.getMonth();
+      let year = date.getYear();
+      console.log(day, month, year);
+      console.log(date.toString());
+
+      date.setDay(11);
+      date.setMonth(1);
+      date.setYear(1992);
+      console.log(date.day, date.month, date.year);
+      let output_02 = date.toString();
+      console.log(output_02);
+
+      date.setDate(26, 12, 1994);
+      console.log(date.day, date.month, date.year);
+
+      let output_03 = date.toString();
+      console.log(output_03);
+    </script>
+  </body>
+</html>
