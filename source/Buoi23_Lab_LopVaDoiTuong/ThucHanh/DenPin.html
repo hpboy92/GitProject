@@ -75,12 +75,12 @@
   <body>
     <p>
       Nạp Pin: <input type="number" min="1" id="napPin" />
-      <button type="button" onclick="">Nạp</button>
+      <button type="button" onclick="handleBattery()">Nạp</button>
     </p>
     <fieldset style="width: 400px">
       <div>
-        <button type="button" onclick="myFlashLamp.turnOn()">ON</button>
-        <button type="button" onclick="myFlashLamp.turnOff()">OFF</button>
+        <button type="button" onclick="handleOn()">ON</button>
+        <button type="button" onclick="handleOff()">OFF</button>
       </div>
       <div>
         Status:
@@ -106,12 +106,31 @@
         myFlashLamp.battery.decreaseEnergy();
         showMyFlashLampStastus();
         showMyFlashLampBatteryInfo();
+        if (myFlashLamp.battery.getBatteryInfo == 0) {
+          clearInterval(myInterval);
+        }
       }
 
       function handleOn() {
         myFlashLamp.turnOn();
         myInterval = setInterval(decreaseMyFlashLampBatteryEnergy, 1000);
       }
+
+      function handleOff() {
+        myFlashLamp.turnOff();
+        if (myInterval) {
+          clearInterval(myInterval);
+        }
+        showMyFlashLampStastus();
+      }
+
+      function handleBattery() {
+        myFlashLamp.battery.setEnergy(document.getElementById("napPin").value);
+        showMyFlashLampBatteryInfo();
+      }
+
+      showMyFlashLampStastus();
+      showMyFlashLampBatteryInfo();
     </script>
   </body>
 </html>
