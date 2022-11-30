@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Battery {
+        constructor() {
+          this.energy = 0;
+        }
+
+        setEnergy(energy) {
+          this.energy = energy;
+        }
+
+        getEnergy() {
+          return this.energy;
+        }
+
+        decreaseEnergy() {
+          if (this.energy > 0) {
+            this.energy--;
+          }
+        }
+
+        increaseEnergy(eNum) {
+          this.energy += eNum;
+        }
+      }
+
+      class FlashLamp {
+        constructor() {
+          this.status = false;
+        }
+
+        setBattery(battery) {
+          this.battery = battery;
+        }
+
+        getBatteryInfo() {
+          return this.battery.getEnergy();
+        }
+
+        light() {
+          if (this.status) {
+            alert("Lighting");
+          } else {
+            alert("Not Lighting");
+          }
+        }
+
+        turnOn() {
+          this.status = true;
+        }
+        turnOff() {
+          this.status = false;
+        }
+      }
+
+      // Khai báo Pin
+      let myBattery = new Battery();
+
+      //Khai báo đèn
+      let myFlashLamp = new FlashLamp();
+      myFlashLamp.setBattery(myBattery);
+      console.log(
+        myBattery.energy,
+        myFlashLamp.getBatteryInfo(),
+        myFlashLamp.status
+      );
+    </script>
+  </head>
+  <body>
+    <p>
+      Nạp Pin: <input type="number" min="1" id="napPin" />
+      <button type="button" onclick="">Nạp</button>
+    </p>
+    <fieldset style="width: 400px">
+      <div>
+        <button type="button" onclick="myFlashLamp.turnOn()">ON</button>
+        <button type="button" onclick="myFlashLamp.turnOff()">OFF</button>
+      </div>
+      <div>
+        Status:
+        <span id="lightStatus"> </span>
+      </div>
+      <div>
+        Battery:
+        <span id="batteryEnergy"> </span>
+      </div>
+    </fieldset>
+    <script>
+      function showMyFlashLampStastus() {
+        document.getElementById("lightStatus").innerHTML = myFlashLamp.status;
+      }
+
+      function showMyFlashLampBatteryInfo() {
+        document.getElementById("batteryEnergy").innerHTML =
+          myFlashLamp.getBatteryInfo();
+      }
+
+      let myInterval;
+      function decreaseMyFlashLampBatteryEnergy() {
+        myFlashLamp.battery.decreaseEnergy();
+        showMyFlashLampStastus();
+        showMyFlashLampBatteryInfo();
+      }
+
+      function handleOn() {
+        myFlashLamp.turnOn();
+        myInterval = setInterval(decreaseMyFlashLampBatteryEnergy, 1000);
+      }
+    </script>
+  </body>
+</html>
