@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class HinhChuNhat {
+        constructor() {
+          this.chieuDai = 0;
+          this.chieuRong = 0;
+        }
+
+        datGiaTriChieuDai(chieuDai) {
+          this.chieuDai = chieuDai;
+        }
+
+        datGiaTriChieuRong(chieuRong) {
+          this.chieuRong = chieuRong;
+        }
+
+        dienTichHinhChuNhat() {
+          return this.chieuDai * this.chieuRong;
+        }
+
+        chuViHinhChuNhat() {
+          return (this.chieuDai + this.chieuRong) * 2;
+        }
+      }
+
+      let hinhChuNhat_01 = new HinhChuNhat();
+      
+    </script>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <td>Nhập chiều dài HCN:</td>
+            <td><input type="number" min="1" id="chieuDai"></input></td>
+            <td rowspan="2">
+                <button type="button" onclick="nhapKichThuocHCN()">Nhập</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Nhập chiều rộng HCN:</td>
+            <td><input type="number" min="1" id="chieuRong"></input></td>
+        </tr>
+    </table>
+
+    <div id="ketQua"></div>
+    
+    <p>
+        <button type="button" onclick="veHinhChuNhat()">Vẽ hình chữ nhật</button>
+        <button type="button" onclick="xoaHinhChuNhat()">Xóa</button>
+    </p>
+
+    
+
+    <canvas id="myCanvas" width="400px" height="200px" style="border: 3px solid #800080;"></canvas>
+   
+
+    
+
+    <script>
+            let c = document.getElementById('myCanvas');
+            let ctx = c.getContext('2d');
+
+        function veHinhChuNhat() {
+            
+            ctx.beginPath();
+            ctx.rect(100,100,hinhChuNhat_01.chieuDai,hinhChuNhat_01.chieuRong);
+            ctx.stroke();  
+        }
+
+        function xoaHinhChuNhat() {
+            ctx.clearRect(0,0,c.width,c.height);
+            hinhChuNhat_01.datGiaTriChieuDai('');
+            hinhChuNhat_01.datGiaTriChieuRong('');
+            document.getElementById('ketQua').innerHTML = '';
+
+        }
+
+        function nhapKichThuocHCN() {
+            hinhChuNhat_01.datGiaTriChieuDai(parseInt(document.getElementById('chieuDai').value));
+            hinhChuNhat_01.datGiaTriChieuRong(parseInt(document.getElementById('chieuRong').value));
+            document.getElementById('ketQua').innerHTML = `Diện tích hình chữ nhật là: ${hinhChuNhat_01.dienTichHinhChuNhat()} <br> Chu vi hình chữ nhật là: ${hinhChuNhat_01.chuViHinhChuNhat()}`;
+            
+        }
+
+        
+        
+        
+       
+      
+    </script>
+  </body>
+</html>
