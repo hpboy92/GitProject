@@ -94,13 +94,28 @@
       function themThongTinNhanVien() {
         let nhanVienMoi = new NhanVien();
         nhanVienMoi.datHoTen(document.getElementById("hoTen").value);
+        if (nhanVienMoi.hoTen === "") {
+          alert("Nhập họ tên.");
+          return;
+        }
         nhanVienMoi.datCMND(document.getElementById("soCMND").value);
+        if (nhanVienMoi.CMND === "") {
+          alert("Nhập CMND.");
+          return;
+        }
         nhanVienMoi.datSoDienThoai(
           document.getElementById("soDienThoai").value
         );
-        nhanVienMoi.datNamSinh(
-          parseInt(document.getElementById("namSinh").value)
-        );
+        if (nhanVienMoi.soDienThoai === "") {
+          alert("Nhập Số điện thoại.");
+          return;
+        }
+        nhanVienMoi.datNamSinh(document.getElementById("namSinh").value);
+
+        if (nhanVienMoi.namSinh === "") {
+          alert("Nhập năm sinh.");
+          return;
+        }
         nhanVienMoi.datGioiTinh(xuLyGioiTinh());
 
         let dsNhanVien = layDanhSachNhanVienTuLocalStorage();
