@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Quản Lý Nhân Viên</h2>
+    <fieldset style="width: 700px">
+      <legend><b>Thêm thông tin nhân viên</b></legend>
+      <table cellspacing="5" cellpadding="5">
+        <tr>
+          <td>Họ và tên</td>
+          <td><input type="text" id="hoTen" /></td>
+        </tr>
+        <tr>
+          <td>Số CMND/CCCD</td>
+          <td><input type="text" id="soCMND" /></td>
+        </tr>
+        <tr>
+          <td>Số điện thoại</td>
+          <td><input type="text" id="soDienThoai" /></td>
+        </tr>
+        <tr>
+          <td>Năm sinh</td>
+          <td><input type="text" id="namSinh" /></td>
+        </tr>
+        <tr>
+          <td>Giới tính</td>
+          <td>
+            <input type="radio" name="gioiTinh" value="Nam" checked />Nam
+            <input type="radio" name="gioiTinh" value="Nữ" />Nữ
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">
+            <button type="button" onclick="themThongTinNhanVien()">Thêm</button>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <br />
+    <fieldset style="width: 700px">
+      <legend><b>Danh sách nhân viên</b></legend>
+      <p>
+        <button type="button" onclick="inDanhSachNhanVien()">
+          Cập nhật danh sách Nhân viên
+        </button>
+      </p>
+      <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+          <th>STT</th>
+          <th>Họ và tên</th>
+          <th>Số CMND/CCCD</th>
+          <th>Số điện thoại</th>
+          <th>Năm sinh</th>
+          <th>Giới tính</th>
+        </thead>
+        <tbody id="ketQua"></tbody>
+      </table>
+    </fieldset>
+    <script>
+      class NhanVien {
+        constructor() {}
+        datHoTen(hoTen) {
+          this.hoTen = hoTen;
+        }
+        datCMND(CMND) {
+          this.CMND = CMND;
+        }
+        datSoDienThoai(soDienThoai) {
+          this.soDienThoai = soDienThoai;
+        }
+        datNamSinh(namSinh) {
+          this.namSinh = namSinh;
+        }
+        datGioiTinh(gioiTinh) {
+          this.gioiTinh = gioiTinh;
+        }
+      }
+
+      const DANH_SACH_NHAN_VIEN_KEY = "dsNhanVien";
+      function layDanhSachNhanVienTuLocalStorage() {
+        let dsNhanVien = localStorage.getItem(DANH_SACH_NHAN_VIEN_KEY);
+        if (dsNhanVien == null) {
+          return [];
+        } else {
+          return JSON.parse(dsNhanVien);
+        }
+      }
+
+      function themThongTinNhanVien() {
+        let nhanVienMoi = new NhanVien();
+        nhanVienMoi.datHoTen(document.getElementById("hoTen").value);
+        nhanVienMoi.datCMND(document.getElementById("soCMND").value);
+        nhanVienMoi.datSoDienThoai(
+          document.getElementById("soDienThoai").value
+        );
+        nhanVienMoi.datNamSinh(
+          parseInt(document.getElementById("namSinh").value)
+        );
+        nhanVienMoi.datGioiTinh(xuLyGioiTinh());
+
+        let dsNhanVien = layDanhSachNhanVienTuLocalStorage();
+        console.log(dsNhanVien);
+        for (let i = 0; i < dsNhanVien.length; i++) {
+          console.log(nhanVienMoi.CMND, dsNhanVien[i].CMND, i);
+          if (nhanVienMoi.CMND === dsNhanVien[i].CMND) {
+            alert("Thông tin CMND của nhân viên đã được sử dụng.");
+
+            return;
+          }
+        }
+
+        dsNhanVien.push(nhanVienMoi);
+
+        localStorage.setItem(
+          DANH_SACH_NHAN_VIEN_KEY,
+          JSON.stringify(dsNhanVien)
+        );
+        console.log(dsNhanVien);
+      }
+
+      function inDanhSachNhanVien() {
+        document.getElementById("ketQua").innerHTML = "";
+        dsNhanVien = layDanhSachNhanVienTuLocalStorage();
+        for (let idx = 0; idx < dsNhanVien.length; idx++) {
+          let dong = document.createElement("tr");
+          let cot_STT = document.createElement("td");
+          cot_STT.innerHTML = idx + 1;
+          cot_STT.align = "center";
+          let cot_hoTen = document.createElement("td");
+          cot_hoTen.innerHTML = dsNhanVien[idx].hoTen;
+          let cot_CMND = document.createElement("td");
+          cot_CMND.innerHTML = dsNhanVien[idx].CMND;
+          let cot_soDienThoai = document.createElement("td");
+          cot_soDienThoai.innerHTML = dsNhanVien[idx].soDienThoai;
+          cot_soDienThoai.align = "center";
+          let cot_namSinh = document.createElement("td");
+          cot_namSinh.innerHTML = dsNhanVien[idx].namSinh;
+          cot_namSinh.align = "center";
+          let cot_gioiTinh = document.createElement("td");
+          cot_gioiTinh.innerHTML = dsNhanVien[idx].gioiTinh;
+          cot_gioiTinh.align = "center";
+          dong.appendChild(cot_STT);
+          dong.appendChild(cot_hoTen);
+          dong.appendChild(cot_CMND);
+          dong.appendChild(cot_soDienThoai);
+          dong.appendChild(cot_namSinh);
+          dong.appendChild(cot_gioiTinh);
+          document.getElementById("ketQua").appendChild(dong);
+        }
+      }
+
+      function xuLyGioiTinh() {
+        let mangGioiTinh = document.getElementsByName("gioiTinh");
+        for (let i = 0; i < mangGioiTinh.length; i++) {
+          if (mangGioiTinh[i].checked) {
+            return mangGioiTinh[i].value;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
