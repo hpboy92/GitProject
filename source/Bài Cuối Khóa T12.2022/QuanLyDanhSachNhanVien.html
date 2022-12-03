@@ -8,7 +8,7 @@
   </head>
   <body>
     <h2>Quản Lý Nhân Viên</h2>
-    <fieldset style="width: 700px">
+    <fieldset style="width: fit-content">
       <legend><b>Thêm thông tin nhân viên</b></legend>
       <table cellspacing="5" cellpadding="5">
         <tr>
@@ -42,7 +42,7 @@
       </table>
     </fieldset>
     <br />
-    <fieldset style="width: 700px">
+    <fieldset style="width: fit-content">
       <legend><b>Danh sách nhân viên</b></legend>
       <p>
         <button type="button" onclick="inDanhSachNhanVien()">
@@ -57,6 +57,7 @@
           <th>Số điện thoại</th>
           <th>Năm sinh</th>
           <th>Giới tính</th>
+          <th>Xóa Nhân viên</th>
         </thead>
         <tbody id="ketQua"></tbody>
       </table>
@@ -119,7 +120,7 @@
         nhanVienMoi.datGioiTinh(xuLyGioiTinh());
 
         let dsNhanVien = layDanhSachNhanVienTuLocalStorage();
-        console.log(dsNhanVien);
+
         for (let i = 0; i < dsNhanVien.length; i++) {
           console.log(nhanVienMoi.CMND, dsNhanVien[i].CMND, i);
           if (nhanVienMoi.CMND === dsNhanVien[i].CMND) {
@@ -159,12 +160,21 @@
           let cot_gioiTinh = document.createElement("td");
           cot_gioiTinh.innerHTML = dsNhanVien[idx].gioiTinh;
           cot_gioiTinh.align = "center";
+          let cot_xoaNhanVien = document.createElement("td");
+          let nutXoa = document.createElement("button");
+          nutXoa.onclick = function () {
+            xoaThongTinNhanVien(idx);
+          };
+          nutXoa.innerHTML = "Xóa";
+          cot_xoaNhanVien.appendChild(nutXoa);
+          cot_xoaNhanVien.align = "center";
           dong.appendChild(cot_STT);
           dong.appendChild(cot_hoTen);
           dong.appendChild(cot_CMND);
           dong.appendChild(cot_soDienThoai);
           dong.appendChild(cot_namSinh);
           dong.appendChild(cot_gioiTinh);
+          dong.appendChild(cot_xoaNhanVien);
           document.getElementById("ketQua").appendChild(dong);
         }
       }
@@ -176,6 +186,19 @@
             return mangGioiTinh[i].value;
           }
         }
+      }
+
+      function xoaThongTinNhanVien(idx) {
+        let xacNhan = confirm("Bạn có muốn xóa thông tin nhân viên này?");
+        if (!xacNhan) return;
+        let dsNhanVien = layDanhSachNhanVienTuLocalStorage();
+        dsNhanVien.splice(idx, 1);
+        localStorage.setItem(
+          DANH_SACH_NHAN_VIEN_KEY,
+          JSON.stringify(dsNhanVien)
+        );
+        console.log(dsNhanVien);
+        inDanhSachNhanVien();
       }
     </script>
   </body>
