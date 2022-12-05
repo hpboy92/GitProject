@@ -125,7 +125,6 @@
           console.log(nhanVienMoi.CMND, dsNhanVien[i].CMND, i);
           if (nhanVienMoi.CMND === dsNhanVien[i].CMND) {
             alert("Thông tin CMND của nhân viên đã được sử dụng.");
-
             return;
           }
         }
@@ -190,7 +189,9 @@
 
       function xoaThongTinNhanVien(idx) {
         let xacNhan = confirm("Bạn có muốn xóa thông tin nhân viên này?");
-        if (!xacNhan) return;
+        if (!xacNhan) {
+          return;
+        }
         let dsNhanVien = layDanhSachNhanVienTuLocalStorage();
         dsNhanVien.splice(idx, 1);
         localStorage.setItem(
